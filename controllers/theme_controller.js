@@ -15,7 +15,7 @@ const getAllThemes = async (req, res, next) => {
 };
 
 const addTheme = async (req, res, next) => {
-    const { main_theme, left_theme, right_theme, header_theme, footer_theme, status } = req.body;
+    const { main_theme, left_theme, right_theme, header_theme, footer_theme, footer_bg_color,left_bg_color,right_bg_color,header_bg_color,status } = req.body;
     let theme;
     try {
         theme = new Theme({
@@ -24,6 +24,7 @@ const addTheme = async (req, res, next) => {
             right_theme,
             header_theme,
             footer_theme,
+            footer_bg_color,left_bg_color,right_bg_color,header_bg_color,
             status
         });
         await theme.save();
@@ -57,7 +58,7 @@ const getThemeById = async (req, res, next) => {
 
 const updateThemeById = async (req, res, next) => {
     const t_id = req.params.tid;
-    const { main_theme, left_theme, right_theme, header_theme, footer_theme, status } = req.body;
+    const { main_theme, left_theme, right_theme, header_theme, footer_theme,footer_bg_color,left_bg_color,right_bg_color,header_bg_color,status } = req.body;
     let theme;
     try {
         theme = await Theme.findByIdAndUpdate(t_id, {
@@ -66,6 +67,7 @@ const updateThemeById = async (req, res, next) => {
             right_theme,
             header_theme,
             footer_theme,
+            footer_bg_color,left_bg_color,right_bg_color,header_bg_color,
             status
         });
         theme = await theme.save();

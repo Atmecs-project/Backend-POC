@@ -15,11 +15,11 @@ const getAllLayouts = async (req, res, next) => {
 };
 
 const addLayout = async (req, res, next) => {
-    const { layout_name, status } = req.body;
+    const { left_layout, right_layout } = req.body;
     let layout;
     try {
         layout = new layout({
-            layout_name, status
+            left_layout, right_layout
         });
         await layout.save();
 
@@ -52,11 +52,11 @@ const getLayoutById = async (req, res, next) => {
 
 const updateLayoutById = async (req, res, next) => {
     const lid = req.params.lid;
-    const { layout_name, status  } = req.body;
+    const { left_layout, right_layout  } = req.body;
     let layout;
     try {
         layout = await Layout.findByIdAndUpdate(lid, {
-            layout_name, status 
+            left_layout, right_layout 
         });
         layout = await layout.save();
     } catch (err) {

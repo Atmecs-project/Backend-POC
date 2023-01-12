@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 const layoutSchema = new Schema({       
-    layout_name: {
+    left_layout: {
         type: String,
         required: true,
     },    
-    status: {
+    right_layout: {
         type: Boolean,
         required: true,
         }
