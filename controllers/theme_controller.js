@@ -1,9 +1,9 @@
-const Theme = require("../model/model_theme");
+const Themes = require("../model/model_theme");
 
 const getAllThemes = async (req, res, next) => {
     let themes;
     try {
-        themes = await Theme.find();
+        themes = await Themes.find();
     } catch (err) {
         console.log(err);
     }
@@ -15,16 +15,11 @@ const getAllThemes = async (req, res, next) => {
 };
 
 const addTheme = async (req, res, next) => {
-    const { main_theme, left_theme, right_theme, header_theme, footer_theme, status } = req.body;
+    const { main_theme, left_theme, right_theme, header_theme, footer_theme, footer_bg_color, header_bg_color, left_bg_color, right_bg_color, status } = req.body;
     let theme;
     try {
-        theme = new Theme({
-            main_theme,
-            left_theme,
-            right_theme,
-            header_theme,
-            footer_theme,
-            status
+        theme = new Themes({
+            main_theme, left_theme, right_theme, header_theme, footer_theme, footer_bg_color, header_bg_color, left_bg_color, right_bg_color, status
         });
         await theme.save();
 
@@ -39,11 +34,11 @@ const addTheme = async (req, res, next) => {
 };
 
 const getThemeById = async (req, res, next) => {
-    const t_id = req.params.tid;
+    const id = req.params.id;
     let theme;
     try {
        // theme=await theme.findOne({_id:tid});
-       theme = await Theme.findById(t_id);
+       theme = await Themes.findById(id);
     } catch (err) {
         console.log(err);
     }
@@ -56,17 +51,12 @@ const getThemeById = async (req, res, next) => {
 };
 
 const updateThemeById = async (req, res, next) => {
-    const t_id = req.params.tid;
-    const { main_theme, left_theme, right_theme, header_theme, footer_theme, status } = req.body;
+    const id = req.params.id;
+    const { main_theme, left_theme, right_theme, header_theme, footer_theme, footer_bg_color, header_bg_color, left_bg_color, right_bg_color, status } = req.body;
     let theme;
     try {
-        theme = await Theme.findByIdAndUpdate(t_id, {
-            main_theme,
-            left_theme,
-            right_theme,
-            header_theme,
-            footer_theme,
-            status
+        theme = await Themes.findByIdAndUpdate(id, {
+            main_theme, left_theme, right_theme, header_theme, footer_theme, footer_bg_color, header_bg_color, left_bg_color, right_bg_color, status
         });
         theme = await theme.save();
     } catch (err) {

@@ -1,11 +1,11 @@
 const express=require('express');
 const router=express.Router();
-const layoutController=require("../controllers/layout-controller");
+const layoutController=require("../controllers/layout_controller");
 
 
 router.get("/",layoutController.getAllLayouts);
 router.post("/",layoutController.addLayout);
-router.get("/:lid",layoutController.getLayoutById);
-router.put("/:lid",layoutController.updateLayoutById);
+router.get("/:id",layoutController.getLayoutById);
+router.put("/:id",layoutController.updateLayoutById);
 
 module.exports = router;

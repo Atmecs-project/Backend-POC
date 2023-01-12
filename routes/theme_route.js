@@ -5,7 +5,7 @@ const themeController=require("../controllers/theme_controller");
 
 router.get("/",themeController.getAllThemes);
 router.post("/",themeController.addTheme);
-router.get("/:tid",themeController.getThemeById);
-router.put("/:tid",themeController.updateThemeById);
+router.get("/:id",themeController.getThemeById);
+router.put("/:id",themeController.updateThemeById);
 
 module.exports = router;

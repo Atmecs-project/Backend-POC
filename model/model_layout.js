@@ -2,14 +2,23 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 const layoutSchema = new Schema({       
-    layout_name: {
-        type: String,
-        required: true,
-    },    
-    status: {
+    
+     left_layout: {
         type: Boolean,
-        required: true,
-        }
+        required:true,
+    },    
+     right_layout: {
+        type: Boolean,
+        required:true,
+    },
+    show_logo: {
+        type: Boolean,
+        required:true,
+    },
+    show_leftmenu: {
+        type: Boolean,
+        required:true,
+    }
 });
 
 module.exports = mongoose.model("col_layouts", layoutSchema);
