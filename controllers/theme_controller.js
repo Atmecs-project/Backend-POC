@@ -58,7 +58,7 @@ const getThemeById = async (req, res, next) => {
 
 const updateThemeById = async (req, res, next) => {
     const t_id = req.params.tid;
-    const { main_theme, left_theme, right_theme, header_theme, footer_theme,footer_bg_color,left_bg_color,right_bg_color,header_bg_color,status } = req.body;
+    const { main_theme, left_theme, right_theme, header_theme, footer_theme, footer_bg_color, left_bg_color, right_bg_color, header_bg_color, status } = req.body;
     let theme;
     try {
         theme = await Theme.findByIdAndUpdate(t_id, {
@@ -67,9 +67,12 @@ const updateThemeById = async (req, res, next) => {
             right_theme,
             header_theme,
             footer_theme,
-            footer_bg_color,left_bg_color,right_bg_color,header_bg_color,
+            footer_bg_color, 
+            left_bg_color, 
+            right_bg_color, 
+            header_bg_color,
             status
-        });
+        }); 
         theme = await theme.save();
     } catch (err) {
         console.log(err);
