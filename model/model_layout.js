@@ -18,6 +18,10 @@ const layoutSchema = new Schema({
     show_leftmenu: {
         type: Boolean,
         required:true,
+    },
+    font_family: {
+        type: String,
+        required:true,
     }
 });
 
