@@ -15,11 +15,11 @@ const getAllLayouts = async (req, res, next) => {
 };
 
 const addLayout = async (req, res, next) => {
-    const { left_layout, right_layout, show_logo, show_leftmenu, font_family } = req.body;
+    const { left_layout, right_layout, show_logo, show_leftmenu, font_family, font_size } = req.body;
     let lout;
     try {
         lout = new Layouts({
-            left_layout, right_layout, show_logo, show_leftmenu, font_family
+            left_layout, right_layout, show_logo, show_leftmenu, font_family, font_size
         });
         await lout.save();
 
@@ -51,11 +51,11 @@ const getLayoutById = async (req, res, next) => {
 
 const updateLayoutById = async (req, res, next) => {
     const id = req.params.id;
-    const { left_layout, right_layout, show_logo, show_leftmenu, font_family } = req.body;
+    const { left_layout, right_layout, show_logo, show_leftmenu, font_family, font_size } = req.body;
     let lout;
     try {
         lout = await Layouts.findByIdAndUpdate(id, {
-            left_layout, right_layout, show_logo, show_leftmenu, font_family
+            left_layout, right_layout, show_logo, show_leftmenu, font_family, font_size
         });
         lout = await lout.save();
     } catch (err) {

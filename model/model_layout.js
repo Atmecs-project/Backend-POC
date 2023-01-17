@@ -22,6 +22,10 @@ const layoutSchema = new Schema({
     font_family: {
         type: String,
         required:true,
+    },
+    font_size: {
+        type:Number,
+        required:true,
     }
 });
 
