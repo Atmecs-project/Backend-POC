@@ -24,7 +24,7 @@ const layoutSchema = new Schema({
         required:true,
     },
     font_size: {
-        type:Number,
+        type:String,
         required:true,
     }
 });
